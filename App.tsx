@@ -1,5 +1,6 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import AppLoading from 'expo-app-loading';
+import * as SplashScreen from 'expo-splash-screen';
 import { ThemeProvider } from 'styled-components';
 
 import {
@@ -17,8 +18,11 @@ import { Home } from './src/screens/Home';
 import theme from './src/styles/theme';
 import { CarDetails } from './src/screens/CarDetails';
 import { Scheduling } from './src/screens/Scheduling';
+import { SchedulingDetails } from './src/screens/SchedulingDetails';
+import { Routes } from './src/routes';
 
 export default function App() {
+  SplashScreen.preventAutoHideAsync();
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -28,12 +32,13 @@ export default function App() {
   });
 
   if (!fontsLoaded){
-    return <AppLoading/>
+    return null;
   }
+  SplashScreen.hideAsync();
   
   return (
     <ThemeProvider theme={theme}>
-      <Scheduling/>
+      <Routes/>
     </ThemeProvider>
   );
 }

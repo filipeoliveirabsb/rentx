@@ -10,8 +10,14 @@ import {
   RentalPeriod,
   DateInfo,
   DateTitle,
-  DateValue
+  DateValue, 
+  Content,
+  Footer
 } from './styles';
+import { StatusBar } from 'react-native';
+import { Button } from '../../components/Button';
+import { Calendar } from '../../components/Calendar';
+
 
 export function Scheduling(){
   const theme = useTheme();
@@ -19,6 +25,11 @@ export function Scheduling(){
   return (
     <Container>
         <Header>
+            <StatusBar
+              barStyle='light-content'
+              translucent
+              backgroundColor='transparent'
+            />
             <BackButton
               onPress={() => {}}
               color={theme.colors.shape}
@@ -32,17 +43,31 @@ export function Scheduling(){
             <RentalPeriod>
                 <DateInfo>
                     <DateTitle>DE</DateTitle>
-                    <DateValue/>
+                    <DateValue selected={true}>
+                      17/06/2022
+                    </DateValue>
                 </DateInfo>
                 
                 <ArrowSvg/>
 
                 <DateInfo>
                     <DateTitle>ATÉ</DateTitle>
-                    <DateValue/>
+                    <DateValue selected={false}>
+                      17/06/2022
+                    </DateValue>
                 </DateInfo>
             </RentalPeriod>
         </Header>
+
+        <Content>
+          <Calendar/>
+        </Content>
+
+        <Footer>
+          <Button
+            title="Confirmar"
+          />
+        </Footer>
 
 
     </Container>
