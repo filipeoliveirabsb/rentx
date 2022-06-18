@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useTheme } from 'styled-components';
-import { Alert } from 'react-native';
 
 import { BackButton } from '../../components/BackButton';
 import { ImageSlider } from '../../components/ImageSlider';
@@ -47,12 +47,21 @@ import {
 
 export function SchedulingDetails(){
   const theme = useTheme();
+  const navigation = useNavigation<any>();
+
+  function handleConfirmRental(){
+    navigation.navigate('SchedulingComplete')
+  }
+
+  function handleBackButton(){
+    navigation.navigate('Scheduling')
+  }
   
   return (
     <Container>
       <Header>
           <BackButton
-            onPress={() => {}}
+            onPress={handleBackButton}
           />
       </Header>
 
@@ -122,7 +131,9 @@ export function SchedulingDetails(){
 
       <Footer>
         <Button 
-          title="Confirmar" 
+          title="Alugar agora"
+          color={theme.colors.sucess}
+          onPress={handleConfirmRental}
         />
       </Footer>
     </Container>

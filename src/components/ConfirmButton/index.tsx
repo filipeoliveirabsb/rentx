@@ -5,10 +5,18 @@ import {
   Title
 } from './styles';
 
-export function ConfirmButton(){
+interface Props {
+  title: string;
+  onPress: () => void;
+}
+
+export function ConfirmButton({
+  title,
+  onPress
+}){
   return (
-    <Container>
-        <Title>OK</Title>
+    <Container onPress={onPress}>
+        <Title>{title}</Title>
     </Container>
   );
 }
