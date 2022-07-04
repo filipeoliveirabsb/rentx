@@ -78,7 +78,7 @@ export function Home(){
               height={RFValue(12)}
            />
            <TotalCars>
-              Total 12 carros 
+              Total {cars.length} carros 
            </TotalCars> 
           </HeaderContent>
         </Header>
@@ -86,7 +86,7 @@ export function Home(){
         <CarList
           data= {cars}
           keyExtractor={item => item.id}
-          renderItem={(item) =>
+          renderItem={({item}) =>
              <Car data={item} onPress={handleCarDetails}/>
           }
         />
