@@ -29,7 +29,7 @@ export function Scheduling(){
   }
 
   function handleBackButton(){
-    navigation.navigate('CarDetails')
+    navigation.goBack()
   }
 
   return (
