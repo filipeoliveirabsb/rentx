@@ -34,7 +34,7 @@ interface Params {
 export function CarDetails(){
   const navigation = useNavigation<any>();
   const route = useRoute();
-  const { car} = route.params as Params;
+  const { car } = route.params as Params;
 
   function handleConfirmButton(){
     navigation.navigate('Scheduling')
