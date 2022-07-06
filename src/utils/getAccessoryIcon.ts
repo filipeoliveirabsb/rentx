@@ -1,12 +1,12 @@
-import speedSvg from '../../assets/speed.svg';
-import accelerationSvg from '../../assets/acceleration.svg';
-import forceSvg from '../../assets/force.svg';
-import gasolineSvg from '../../assets/gasoline.svg';
-import energySvg from '../../assets/energy.svg';
-import hybridSvg from '../../assets/hybrid.svg';
-import exchangeSvg from '../../assets/exchange.svg';
-import peopleSvg from '../../assets/people.svg';
-import car from '../../assets/car.svg';
+import speedSvg from '../assets/speed.svg';
+import accelerationSvg from '../assets/acceleration.svg';
+import forceSvg from '../assets/force.svg';
+import gasolineSvg from '../assets/gasoline.svg';
+import energySvg from '../assets/energy.svg';
+import hybridSvg from '../assets/hybrid.svg';
+import exchangeSvg from '../assets/exchange.svg';
+import peopleSvg from '../assets/people.svg';
+import car from '../assets/car.svg';
 
 export function getAccessoryIcon(type: string){
     switch (type) {
