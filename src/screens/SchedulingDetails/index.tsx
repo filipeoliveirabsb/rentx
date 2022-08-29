@@ -60,7 +60,7 @@ export function SchedulingDetails(){
   const rentTotal = Number(dates.length * car.rent.price);
 
   async function handleConfirmRental(){
-    const scheduleByCar = await api.get(`/schedules/${car.id}`);
+    const scheduleByCar = await api.get(`/schedules_bycars/${car.id}`);
 
     //buscar datas ja agendadas
     const unavailable_dates = [
@@ -68,14 +68,20 @@ export function SchedulingDetails(){
       ...dates,
     ]
 
+    //agendamento por usuario
+    await api.post('schedules_byuser', { 
+      user_id: 1,
+      car
+    })
+
     //implementar validacao de datas que ja foram agendadas
 
-    //atualizar datas agendadas
-    api.put(`/schedules/${car.id}`, {
+    //atualizar datas agendadas por carro
+    api.put(`/schedules_bycars/${car.id}`, {
       id: car.id,
       unavailable_dates
     })
-    .then(response => navigation.navigate('SchedulingComplete'))
+    .then(() => navigation.navigate('SchedulingComplete'))
     .catch(() => Alert.alert('Não foi possível confirmar o agendamento.'));
   }
 
@@ -84,10 +90,13 @@ export function SchedulingDetails(){
   }
 
   useEffect(() => {
+    console.log(dates);
     setRentalPeriod({
       startFormatted: format(getPlatformDate(new Date(dates[0])), 'dd/MM/yyyy'),
-      endFormatted: format(getPlatformDate(new Date(dates.length - 1)), 'dd/MM/yyyy'),
+      endFormatted: format(getPlatformDate(new Date(dates[dates.length - 1])), 'dd/MM/yyyy'),
     })
+    console.log(rentalPeriod);
+    
   },[])
   
   return (
