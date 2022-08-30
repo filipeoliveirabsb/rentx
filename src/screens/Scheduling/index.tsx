@@ -34,7 +34,7 @@ interface RentalPeriodProps {
 export function Scheduling(){
   const [lastSelectedDate, setLastselectedDate] = useState<DayProps>({} as DayProps);
   const [markedDates, setMarkedDates] = useState<MarkedDateProps>({} as MarkedDateProps);
-  const [rentalPeriod, setRentalPeriod] = useState<RentalPeriodProps>();
+  const [rentalPeriod, setRentalPeriod] = useState<RentalPeriodProps>({} as RentalPeriodProps);
 
   const theme = useTheme();
   const navigation = useNavigation<any>();
@@ -78,7 +78,8 @@ export function Scheduling(){
     })
 
   }
-;
+  ; 
+
   return (
     <Container>
         <Header>
