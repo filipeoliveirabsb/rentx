@@ -60,7 +60,7 @@ export function Home(){
     }
 
     fetchCars();
-  })
+  }, []);
 
 /*   const carData2 = {
     brand: "porshe",
